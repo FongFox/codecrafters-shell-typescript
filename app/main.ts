@@ -14,15 +14,16 @@ rl.on('line', (command) => {
     return;
   }
   else if(command.startsWith('echo')) {
-    console.log(command.slice(5));
+    const argument: string = command.slice(5);
+    console.log(argument);
   }
   else if(command.startsWith('type')) {
-    const word: string = command.slice(5);
-    if(word == 'echo' || word == 'type' || word == 'exit') {
-      console.log(`${word} is a shell builtin`);
-    }
-    else {
-      console.log(`${word}: not found`);
+    const commandName: string = command.slice(5);
+    switch (commandName) {
+      case 'echo': case 'type': case 'exit':
+        console.log(`${commandName} is a shell builtin`); break;
+      default:
+        console.log(`${commandName}: not found`);
     }
   }
   else {
