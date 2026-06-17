@@ -12,9 +12,20 @@ rl.on('line', (command) => {
   if(command.startsWith('exit')) {
     rl.close();
     return;
-  } else if(command.startsWith('echo')) {
+  }
+  else if(command.startsWith('echo')) {
     console.log(command.slice(5));
-  } else {
+  }
+  else if(command.startsWith('type')) {
+    const word: string = command.slice(5);
+    if(word == 'echo' || word == 'exit') {
+      console.log(`${command} is a shell builtin`)
+    }
+    else {
+      console.log(`${command}: command not found`);
+    }
+  }
+  else {
     console.log(`${command}: command not found`);
   }
   rl.prompt();
