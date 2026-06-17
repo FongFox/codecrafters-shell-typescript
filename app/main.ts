@@ -18,8 +18,8 @@ rl.on('line', (command) => {
   }
   else if(command.startsWith('type')) {
     const word: string = command.slice(5);
-    if(word == 'echo' || word == 'exit') {
-      console.log(`${word} is a shell builtin`)
+    if(word == 'echo' || word == 'type' || word == 'exit') {
+      console.log(`${word} is a shell builtin`);
     }
     else {
       console.log(`${word}: command not found`);
