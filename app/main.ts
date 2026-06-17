@@ -22,7 +22,7 @@ rl.on('line', (command) => {
       console.log(`${word} is a shell builtin`);
     }
     else {
-      console.log(`${word}: command not found`);
+      console.log(`${word}: not found`);
     }
   }
   else {
