@@ -64,7 +64,7 @@ rl.on('line', (command) => {
                 accessSync(commandPath, constants.X_OK);
                 lineExists = true;
                 // execute the program
-                spawnSync(commandPath, args, {stdio: 'inherit'});
+                spawnSync(programName, args, {stdio: 'inherit'});
                 break;
             } catch (e) {
             }
