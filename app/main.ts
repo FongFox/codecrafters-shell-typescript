@@ -62,7 +62,6 @@ rl.on('line', (command) => {
             try {
                 const commandPath = `${directory}/${programName}`;
                 accessSync(commandPath, constants.X_OK);
-                console.log(commandPath);
                 lineExists = true;
                 // execute the program
                 spawnSync(commandPath, args, {stdio: 'inherit'});
